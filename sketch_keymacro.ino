@@ -1,11 +1,11 @@
 #include <Keyboard.h>
 
-// yellow - 2 - (LEFT)
+// yellow - 2 - (RIGHT)
 // orange - 3 - (DOWN)
-// red - 4 (RIGHT)
-// purple - 5 h_sx
+// red - 4 (LEFT)
+// purple - 5 special_right
 // blue - 6 (UP)
-// green - 7 h_dxx
+// green - 7 special_left
 
 
 int wLeft = 4;
