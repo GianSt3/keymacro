@@ -7,62 +7,62 @@
 // blue - 6 (UP)
 // green - 7 special_left
 
-
-int wLeft = 4;
-int wDown = 3;
-int wRight = 2;
-int wUp = 6;
-
-int wModLeft = 7;
-int wModRight = 5;
+enum buttons {
+  left = 4,
+  down = 3,
+  right = 2,
+  up = 6,
+  modLeft = 7,
+  modRight = 5
+};
 
 int myDelay = 150;
 
 bool pressed = false;
 
 void setup() {
-  pinMode(wLeft, INPUT_PULLUP);
-  pinMode(wDown, INPUT_PULLUP);
-  pinMode(wRight, INPUT_PULLUP);
-  pinMode(wUp, INPUT_PULLUP);
-  pinMode(wModLeft, INPUT_PULLUP);
-  pinMode(wModRight, INPUT_PULLUP);
+  pinMode(buttons::left, INPUT_PULLUP);
+  pinMode(buttons::down, INPUT_PULLUP);
+  pinMode(buttons::right, INPUT_PULLUP);
+  pinMode(buttons::up, INPUT_PULLUP);
+  pinMode(buttons::modLeft, INPUT_PULLUP);
+  pinMode(buttons::modRight, INPUT_PULLUP);
   Keyboard.begin();
 }
 
 void loop() {
 
-  if (digitalRead(wLeft) == LOW) {
+  if (digitalRead(buttons::left) == LOW) {
     Keyboard.write(KEY_LEFT_ARROW);
     delay(myDelay);
     pressed = true;
   }
-  if (digitalRead(wDown) == LOW) {
+  if (digitalRead(buttons::down) == LOW) {
     Keyboard.write(KEY_DOWN_ARROW);
     delay(myDelay);
     pressed = true;
   }
-  if (digitalRead(wRight) == LOW) {
+  if (digitalRead(buttons::right) == LOW) {
     Keyboard.write(KEY_RIGHT_ARROW);
     delay(myDelay);
     pressed = true;
   }
-  if (digitalRead(wUp) == LOW) {
+  if (digitalRead(buttons::up) == LOW) {
     Keyboard.write(KEY_UP_ARROW);
     delay(myDelay);
     pressed = true;
   }
-  if (digitalRead(wModLeft) == LOW) {
+  if (digitalRead(buttons::modLeft) == LOW) {
     Keyboard.write(KEY_HOME);
     delay(myDelay);
     pressed = true;
   }
-  if (digitalRead(wModRight) == LOW) {
+  if (digitalRead(buttons::modRight) == LOW) {
     Keyboard.write(KEY_END);
     delay(myDelay);
     pressed = true;
   }
-  
+
   if (pressed) {
     myDelay = 42;
     pressed = false;
