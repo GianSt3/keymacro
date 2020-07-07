@@ -31,36 +31,23 @@ void setup() {
 }
 
 void loop() {
-
   if (digitalRead(buttons::left) == LOW) {
-    Keyboard.write(KEY_LEFT_ARROW);
-    delay(myDelay);
-    pressed = true;
+    keyboardWrite(KEY_LEFT_ARROW);
   }
   if (digitalRead(buttons::down) == LOW) {
-    Keyboard.write(KEY_DOWN_ARROW);
-    delay(myDelay);
-    pressed = true;
+    keyboardWrite(KEY_DOWN_ARROW);
   }
   if (digitalRead(buttons::right) == LOW) {
-    Keyboard.write(KEY_RIGHT_ARROW);
-    delay(myDelay);
-    pressed = true;
+    keyboardWrite(KEY_RIGHT_ARROW);
   }
   if (digitalRead(buttons::up) == LOW) {
-    Keyboard.write(KEY_UP_ARROW);
-    delay(myDelay);
-    pressed = true;
+    keyboardWrite(KEY_UP_ARROW);
   }
   if (digitalRead(buttons::modLeft) == LOW) {
-    Keyboard.write(KEY_HOME);
-    delay(myDelay);
-    pressed = true;
+    keyboardWrite(KEY_HOME);
   }
   if (digitalRead(buttons::modRight) == LOW) {
-    Keyboard.write(KEY_END);
-    delay(myDelay);
-    pressed = true;
+    keyboardWrite(KEY_END);
   }
 
   if (pressed) {
@@ -69,4 +56,10 @@ void loop() {
   } else {
     myDelay = 150;
   }
+}
+
+void keyboardWrite(char key) {
+  Keyboard.write(key);
+  delay(myDelay);
+  pressed = true;
 }
